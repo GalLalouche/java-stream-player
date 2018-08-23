@@ -72,13 +72,12 @@ public class StreamPlayerEventLauncher implements Callable<String> {
 
     @Override
     public String call() throws Exception {
-	// Notify all the listeners that the state has been updated
-	if (listeners != null) {
-	    listeners.forEach(listener -> listener
-		    .statusUpdated(new StreamPlayerEvent(source, playerState, encodedStreamPosition, description)));
-	}
+      // Notify all the listeners that the state has been updated
+      if (listeners != null) {
+          listeners.forEach(listener -> listener
+            .statusUpdated(new StreamPlayerEvent(source, playerState, encodedStreamPosition, description)));
+      }
 
-	System.out.println("Stream player Status -> " + playerState);
-	return "OK";
-    }
+      return "OK";
+  }
 }
